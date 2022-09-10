@@ -1,3 +1,4 @@
+import 'package:ankara_fitnes/add-new-screen/workout_schedule.dart';
 import 'package:ankara_fitnes/profile/profile_page.dart';
 import 'package:ankara_fitnes/workout_detail/workout_tracker.dart';
 import 'package:flutter/material.dart';
@@ -64,6 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           _bottomNavigationBarItem(
             icon: Icons.home,
+            label: '',
+          ),
+          _bottomNavigationBarItem(
+            icon: Icons.add,
             label: '',
           ),
           _bottomNavigationBarItem(
@@ -308,7 +313,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => WorkoutTracker())),
+                                      builder: (context) =>
+                                          const WorkoutTracker())),
                               child: const Text(
                                 "See more",
                                 style: TextStyle(
@@ -328,108 +334,103 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .35,
                         width: MediaQuery.of(context).size.width * .8,
-                        child: Expanded(
-                          child: ListView.builder(
-                            itemBuilder: (context, index) {
-                              return Container(
-                                padding: const EdgeInsets.all(20),
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                width: 315,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.black.withOpacity(.04),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Image.asset(
-                                        'assets/images/${workoutList[index]['image']}.png'),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "${workoutList[index]['workout']}",
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 12,
-                                            fontFamily: "Poppins",
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: const EdgeInsets.all(20),
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              width: 315,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.black.withOpacity(.04),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Image.asset(
+                                      'assets/images/${workoutList[index]['image']}.png'),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "${workoutList[index]['workout']}",
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 12,
+                                          fontFamily: "Poppins",
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        Text(
-                                          "${workoutList[index]['calories']} Calories Burn |  ${workoutList[index]['minutes']} minutes",
-                                          style: const TextStyle(
-                                            color: Color(0xffa3a8ac),
-                                            fontSize: 10,
-                                          ),
+                                      ),
+                                      Text(
+                                        "${workoutList[index]['calories']} Calories Burn |  ${workoutList[index]['minutes']} minutes",
+                                        style: const TextStyle(
+                                          color: Color(0xffa3a8ac),
+                                          fontSize: 10,
                                         ),
-                                        Stack(
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  .5,
-                                              height: 10,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                                color: const Color.fromARGB(
-                                                    255, 216, 219, 219),
+                                      ),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                .5,
+                                            height: 10,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              color: const Color.fromARGB(
+                                                  255, 216, 219, 219),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                (workoutList[index]['progress']
+                                                    as double),
+                                            height: 10,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(50),
+                                                topRight: Radius.circular(0),
+                                                bottomLeft: Radius.circular(50),
+                                                bottomRight: Radius.circular(0),
+                                              ),
+                                              gradient: LinearGradient(
+                                                begin: Alignment.centerRight,
+                                                end: Alignment.centerLeft,
+                                                colors: [
+                                                  Color(0xffc58bf2),
+                                                  Color(0xff92a3fd)
+                                                ],
                                               ),
                                             ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  (workoutList[index]
-                                                      ['progress'] as double),
-                                              height: 10,
-                                              decoration: const BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(50),
-                                                  topRight: Radius.circular(0),
-                                                  bottomLeft:
-                                                      Radius.circular(50),
-                                                  bottomRight:
-                                                      Radius.circular(0),
-                                                ),
-                                                gradient: LinearGradient(
-                                                  begin: Alignment.centerRight,
-                                                  end: Alignment.centerLeft,
-                                                  colors: [
-                                                    Color(0xffc58bf2),
-                                                    Color(0xff92a3fd)
-                                                  ],
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                          border: Border.all(
-                                              color: const Color(0xffC58BF2))),
-                                      child: const Icon(
-                                        Icons.chevron_right,
-                                        color: Color(0xffC58BF2),
+                                          )
+                                        ],
                                       ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            },
-                            itemCount: workoutList.length,
-                          ),
+                                    ],
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        border: Border.all(
+                                            color: const Color(0xffC58BF2))),
+                                    child: const Icon(
+                                      Icons.chevron_right,
+                                      color: Color(0xffC58BF2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          },
+                          itemCount: workoutList.length,
                         ),
                       ),
                       SizedBox(
@@ -440,6 +441,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            const WorkingSchedule(),
             ProfilePage()
           ],
         ),
@@ -513,53 +515,51 @@ class NotificationScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               height: MediaQuery.of(context).size.height * .6,
-              child: Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container(
-                      padding: const EdgeInsets.all(20),
-                      margin: const EdgeInsets.symmetric(vertical: 5),
-                      width: 315,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.black.withOpacity(.04),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                              'assets/images/${notList[index]['image']}.png'),
-                          const SizedBox(width: 20),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "${notList[index]['title']}",
-                                style: const TextStyle(
-                                  color: Color(0xff1d1517),
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w500,
-                                ),
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
+                    width: 315,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black.withOpacity(.04),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                            'assets/images/${notList[index]['image']}.png'),
+                        const SizedBox(width: 20),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${notList[index]['title']}",
+                              style: const TextStyle(
+                                color: Color(0xff1d1517),
+                                fontSize: 12,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w500,
                               ),
-                              Text(
-                                "${notList[index]['time']}",
-                                style: const TextStyle(
-                                  color: Color(0xffa3a8ac),
-                                  fontSize: 10,
-                                ),
+                            ),
+                            Text(
+                              "${notList[index]['time']}",
+                              style: const TextStyle(
+                                color: Color(0xffa3a8ac),
+                                fontSize: 10,
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: notList.length,
-                ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                itemCount: notList.length,
               ),
             ),
             Image.asset(

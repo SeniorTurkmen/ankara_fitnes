@@ -11,36 +11,43 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: const Color(0xff92A3FD),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: .5,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: const [
+            Text(
+              'Workout Detail',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+        actions: const [
+          SizedBox(width: 40),
+        ],
+        leadingWidth: 50,
+      ),
       body: SingleChildScrollView(
           child: Column(
         children: [
           const SizedBox(
             height: 30,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                  )),
-              IconButton(
-                  onPressed: (() {}),
-                  icon: const Icon(
-                    Icons.build,
-                    color: Colors.white,
-                  )),
-            ],
-          ),
           const SizedBox(
             height: 30,
           ),
-          const Image(image: AssetImage("assets/workout.png")),
+          const Image(image: AssetImage("assets/images/workout.png")),
           const SizedBox(
             height: 30,
           ),
@@ -94,7 +101,7 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.calendar_month,
                         color: Colors.white,
@@ -145,7 +152,7 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.compare_arrows_outlined,
                         color: Colors.white,
@@ -177,7 +184,11 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                   height: 30,
                 ),
                 const Text(
-                  "You'II Need",
+                  "Your move is wrong",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const Text(
+                  "Fix your form bro",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(

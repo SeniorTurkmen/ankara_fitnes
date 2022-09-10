@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:ankara_fitnes/login-register/component/custom_button.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter/material.dart';
 
 class AddSchedule extends StatefulWidget {
   const AddSchedule({super.key, required this.selectedDay});
@@ -11,10 +12,36 @@ class AddSchedule extends StatefulWidget {
 }
 
 class _AddScheduleState extends State<AddSchedule> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: .5,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: const [
+            Text(
+              'Add Schedule',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+        actions: const [
+          SizedBox(width: 40),
+        ],
+        leadingWidth: 50,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 40),
         child: Column(
@@ -22,26 +49,18 @@ class _AddScheduleState extends State<AddSchedule> {
           children: [
             Text(
               "Selected Day: ${widget.selectedDay.toString().substring(0, 10)}",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
             const SizedBox(
               height: 50,
             ),
             const Text(
               "Time",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             DateTimePicker(
               type: DateTimePickerType.time,
-              icon: const Icon(
-                Icons.timer
-              ),
+              icon: const Icon(Icons.timer),
             ),
             const SizedBox(
               height: 50,
@@ -50,57 +69,42 @@ class _AddScheduleState extends State<AddSchedule> {
               padding: EdgeInsets.only(top: 8.0),
               child: Text(
                 "Details Workout",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
             SizedBox(
               height: 300,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Choose Workout',
-                ),
-              ),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Difficulity',
-                ),
-              ),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Custom Repetitions',
-                ),
-              ),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Custom Weights',
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child:  ElevatedButton(
-                onPressed: () => {Navigator.pop(context)},
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32)
-                    )
-                ), 
-                child: const Text("Save"),
-                ),
-              )
+                children: const [
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Choose Workout',
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Difficulity',
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Custom Repetitions',
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Custom Weights',
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+            CustomButton(label: 'Save', onPressed: () => Navigator.pop(context))
           ],
         ),
       ),
