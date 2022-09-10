@@ -1,4 +1,5 @@
 import 'package:ankara_fitnes/login-register/login_screen.dart';
+import 'package:ankara_fitnes/workout_detail/workout_tracker.dart';
 import 'package:flutter/material.dart';
 
 import 'add-new-screen/workout_schedule.dart';
