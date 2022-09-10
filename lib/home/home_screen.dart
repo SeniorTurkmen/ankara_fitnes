@@ -1,3 +1,5 @@
+import 'package:ankara_fitnes/profile/profile_page.dart';
+import 'package:ankara_fitnes/workout_detail/workout_tracker.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,10 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           _bottomNavigationBarItem(
             icon: Icons.home,
-            label: '',
-          ),
-          _bottomNavigationBarItem(
-            icon: Icons.fitness_center,
             label: '',
           ),
           _bottomNavigationBarItem(
@@ -296,8 +294,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Latest Workout",
                               style: TextStyle(
                                 color: Color(0xff1d1517),
@@ -306,13 +304,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Text(
-                              "See more",
-                              style: TextStyle(
-                                color: Color(0xffaca3a5),
-                                fontSize: 12,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
+                            GestureDetector(
+                              onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => WorkoutTracker())),
+                              child: const Text(
+                                "See more",
+                                style: TextStyle(
+                                  color: Color(0xffaca3a5),
+                                  fontSize: 12,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -436,8 +440,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            const Text('1'),
-            const Text('2')
+            ProfilePage()
           ],
         ),
       ),

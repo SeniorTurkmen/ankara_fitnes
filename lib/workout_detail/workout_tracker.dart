@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WorkoutTracker extends StatefulWidget {
-  WorkoutTracker({Key? key}) : super(key: key);
+  const WorkoutTracker({Key? key}) : super(key: key);
 
   @override
   State<WorkoutTracker> createState() => _WorkoutTrackerState();
@@ -15,47 +15,83 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                  onPressed: (() {}),
-                  icon: Icon(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.white,
                   )),
               IconButton(
                   onPressed: (() {}),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.build,
                     color: Colors.white,
                   )),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Image(image: AssetImage("assets/workout.png")),
-          SizedBox(
+          const Image(image: AssetImage("assets/workout.png")),
+          const SizedBox(
             height: 30,
           ),
           Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black38,
+                  offset: Offset(
+                    2.0,
+                    2.0,
+                  ),
+                  blurRadius: 8.0,
+                  spreadRadius: 1.0,
+                ),
+              ],
+            ),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   "Fullbody Workout",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Container(
+                  height: 75,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xff9DCEFF),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black38,
+                        offset: Offset(
+                          2.0,
+                          2.0,
+                        ),
+                        blurRadius: 8.0,
+                        spreadRadius: 1.0,
+                      ),
+                    ],
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -85,12 +121,17 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
                   height: 75,
                   width: 300,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff9DCEFF),
-                    boxShadow: [
+                    color: const Color(0xffC58BF2),
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black38,
                         offset: Offset(
@@ -102,11 +143,6 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -136,63 +172,29 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                       ),
                     ],
                   ),
-                  height: 75,
-                  width: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xffC58BF2),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black38,
-                        offset: Offset(
-                          2.0,
-                          2.0,
-                        ),
-                        blurRadius: 8.0,
-                        spreadRadius: 1.0,
-                      ),
-                    ],
-                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   "You'II Need",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
-                  children: [Card()],
+                  children: const [Card()],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   "Exercises",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 Column(
-                  children: [Card()],
-                ),
-              ],
-            ),
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black38,
-                  offset: Offset(
-                    2.0,
-                    2.0,
-                  ),
-                  blurRadius: 8.0,
-                  spreadRadius: 1.0,
+                  children: const [Card()],
                 ),
               ],
             ),

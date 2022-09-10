@@ -1,3 +1,4 @@
+import 'package:ankara_fitnes/home/home_screen.dart';
 import 'package:ankara_fitnes/login-register/component/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,14 @@ class SuccessScreen extends StatelessWidget {
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: CustomButton(label: 'Go To Home', onPressed: () {}),
+                child: CustomButton(
+                    label: 'Go To Home',
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const HomeScreen();
+                      }));
+                    }),
               )
             ],
           ),

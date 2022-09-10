@@ -1,8 +1,5 @@
-import 'package:ankara_fitnes/login-register/login_screen.dart';
-import 'package:ankara_fitnes/workout_detail/workout_tracker.dart';
+import 'package:ankara_fitnes/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'add-new-screen/workout_schedule.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: OnBoardingScreen(),
       ),
     );
   }
