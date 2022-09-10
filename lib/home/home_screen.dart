@@ -490,19 +490,13 @@ class NotificationScreen extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: const [
-            Text(
-              'Notifications',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                fontSize: 15,
-              ),
-            ),
-          ],
+        title: const Text(
+          'Notifications',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 15,
+          ),
         ),
         actions: const [
           SizedBox(width: 40),
